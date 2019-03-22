@@ -1,5 +1,11 @@
 # MAT Fan Engagement Coding Challenge
 
+---
+
+## *See bottom of file for completion notes*
+
+---
+
 ## Prerequisites:
 
 * [docker](https://docs.docker.com/)
@@ -126,3 +132,17 @@ $ mosquitto_pub -t carStatus -f examples/status.json
 ```
 
 You should now see a car's position and an event in the webapp.
+
+## Completion Notes
+
+This challenge was fun but took quite a while to complete.  
+This was partly due to my choice of Spring Integration (which I hadn't used before) as a framework, 
+and partly due to confounding factors in the data, such as the use of greater than 15 Significant Figures 
+in the lat and long values (which cannot be handled by a 64bit double).
+
+Ultimately I ran out of time, but had I had more time I would have addressed the following issues:
+
+* The tests are a bit thin and it could really do with some high-level pipeline tests.
+* I never got around to generating the race events.
+* The speed values seem to be a bit jittery (this could be a bug).
+* The position status events are sent even if the position hasn't changed.
